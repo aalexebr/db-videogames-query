@@ -192,13 +192,13 @@ WHERE players.name LIKE 's%';
 
 8- Selezionare le cittÃ  in cui Ã¨ stato giocato il gioco dell'anno del 2018 (36)
 
-SELECT city
+SELECT tournaments.city
 FROM tournaments
 JOIN tournament_videogame ON tournaments.id = tournament_videogame.tournament_id
 JOIN videogames ON tournament_videogame.videogame_id = videogames.id
 JOIN award_videogame ON videogames.id = award_videogame.videogame_id
 JOIN awards ON award_videogame.award_id = awards.id
-WHERE awards.name LIKE "Gioco dell'anno"
+WHERE awards.name LIKE "%anno"
 AND award_videogame.year = 2018
 GROUP BY city;
 
